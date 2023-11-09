@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>图腾拼图20%界面</title>
+  <title>图腾20%</title>
 </head>
 
 <body>
@@ -45,97 +45,114 @@
 
   body,
   html {
-    background-image: url("image/背景.png");
     width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    
+    background-image: url("image/背景.png");
 
-    & main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-
-      .content {
-        width: 85vw;
-        height: 90vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5vw;
-
-        .text {
-          & p {
-            font-size: 5vw;
-
-          }
-        }
-
-        .image {
-          width: 85vw;
-          height: 90vw;
-          position: relative;
-
-          :is(.currentImg, .backImg) {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-
-            & img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-
-            &.active {}
-          }
-
-        }
-
-      }
-
-      .desc {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3vw;
-
-        .outer {
-          width: 60vw;
-          height: 5vw;
-          border-radius: 10vw;
-          background-color: white;
-
-          .inner {
-            max-width: 20%;
-            height: 100%;
-            background-color: #c4b296;
-            border-radius: 10vw;
-
-          }
-        }
-
-        & p {
-          font-size: 5vw;
-
-          &.back {
-            margin-top: 5vw;
-            padding: 2vw 3vw;
-            border-radius: 2vw;
-            background-color: #c4b296;
-
-            & a {
-              all: unset;
-              color: white;
-            }
-          }
-        }
-      }
-
-    }
   }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+
+  }
+
+  .content {
+    width: 85vw;
+    height: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vw;
+
+
+
+  }
+
+  .text p {
+    font-size: 5vw;
+    animation: appear 1s;
+  }
+
+  .image {
+    width: 85vw;
+    height: 90vw;
+    position: relative;
+
+
+  }
+
+  :is(.currentImg, .backImg) {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .active {
+    animation: show 1s;
+  }
+
+
+  .desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vw;
+
+  }
+
+  .outer {
+    width: 60vw;
+    height: 5vw;
+    border-radius: 10vw;
+    background-color: white;
+
+
+  }
+
+  .inner {
+    max-width: 20%;
+    height: 100%;
+    background-color: #c4b296;
+    border-radius: 10vw;
+    animation: proMove 1s backwards;
+  }
+
+  .outer p {
+    font-size: 5vw;
+
+
+  }
+
+  .back {
+    margin-top: 5vw;
+    padding: 2vw 3vw;
+    border-radius: 2vw;
+    background-color: #c4b296;
+
+
+  }
+
+  .back a {
+    all: unset;
+    color: white;
+  }
+
+
 </style>
