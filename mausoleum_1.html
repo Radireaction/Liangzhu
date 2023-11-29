@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box">
+
+    <img src="../image/王陵图像png.png" alt="">
+    <img src="../image/M12光点.png" alt="" class="blink">
+  </div>
+  <div class="bg">
+    <img src="../image/背景.png" alt="">
+  </div>
+  <!-- 文字内容 -->
+  <div class="content content1">
+    <p>反山王陵是迄今为止已发现等级最高的良渚文化墓地，新的玉器品种、丰富的礼器组合、完整的神徽图案以及精湛的加工工艺，极大拓展了良渚文化的研究事业、提升了良渚文化的文明高度，堪称良渚文化考古史上的里程碑。</p>
+  </div>
+  <div class="content content2">
+    <p>
+      反山王陵中的墓葬都为竖穴土坑墓，均有葬具和大量的随葬品，随葬品中绝大部分为玉器，种类丰富，制作精良，体现了墓主人显赫的身份。在南排中央的12号墓中出土了目前已发现体量最大的玉琮和唯一一件刻有神徽图案玉钺，墓主人无疑是一位集神权、王权和军权于一身的良渚国王。下面，就让我们探索M12号墓穴中究竟藏有什么奥秘吧！
+    </p>
+  </div>
+</body>
+
+</html>
+<script>
+  let box = document.querySelector(".box")
+  let content1 = document.querySelector(".content1")
+  let content2 = document.querySelector(".content2")
+  // 标识符
+  let flag = 0
+  box.addEventListener("click", () => {
+    if (flag == 0) {
+      box.style.transform = `translateX(-50%) translateY(50vw)`
+      content1.style.zIndex = 100
+      content1.style.display='block'
+      content1.style.opacity = 1
+      flag = 1
+    } else {
+      location.href = "./mausoleum_2.html"
+    }
+
+
+  })
+  content1.addEventListener("click", () => {
+    content1.style.opacity = 0
+    content1.style.transition = 'none'
+    content1.style.display='none'
+    content2.style.display='block'
+    content2.style.zIndex = 100
+    content2.style.opacity = 1
+  })
+</script>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body,
+  html {
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url("../image/背景2.png");
+    background-repeat: repeat-y;
+    background-size: 100% 100%;
+    position: relative;
+  }
+
+
+  .bg {
+    width: 85vw;
+    position: absolute;
+    top: 5vmin;
+  }
+
+  .bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .box {
+    width: 85vw;
+    aspect-ratio: 16/11;
+    position: absolute;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    z-index: 10;
+    transition: all .3s;
+  }
+
+  .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .box img.blink {
+    width: 30vw;
+    height: 30vw;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    z-index: 100;
+  }
+
+  .content {
+    position: absolute;
+    top: 30vmin;
+    left: 0;
+    padding: 5vw;
+    margin: 0 5vw;
+    background-color: rgb(198, 162, 102);
+    border-radius: 5vw;
+    z-index: 100;
+    transition: all .5s;
+    display: none;
+    opacity: 0;
+  }
+
+  .content p {
+    font-size: 3vw;
+
+  }
+</style>
