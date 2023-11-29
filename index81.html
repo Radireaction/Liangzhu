@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>祭坛1</title>
+</head>
+
+<body>
+  <div class="box">
+
+    <img src="image//瑶山祭坛.jpg" alt="">
+    <a href="index82.html">
+      <img src="image/png祭坛.png" alt="" class="blink">
+    </a>
+  </div>
+</body>
+
+</html>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body,
+  html {
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url("image/背景2.png");
+    background-repeat: repeat-y;
+    background-size: 100% 100%;
+    position: relative;
+  }
+
+
+  .box {
+    width: 100vw;
+
+    position: relative;
+    top: 0;
+    z-index: 10;
+    transition: all .3s;
+  }
+
+  .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .box img.blink {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    /* animation: blink 1s infinite alternate; */
+  }
+
+  .content {
+    position: absolute;
+    top: 30vmin;
+    left: 0;
+    padding: 5vw;
+    margin: 0 5vw;
+    background-color: rgb(198, 162, 102);
+    border-radius: 5vw;
+    z-index: 100;
+    transition: all .5s;
+    display: none;
+    opacity: 0;
+  }
+
+  .content p {
+    font-size: 3vw;
+
+  }
+
+  @keyframes blink {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.05);
+
+    }
+  }
+</style>
