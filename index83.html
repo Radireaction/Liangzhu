@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>祭坛3</title>
+  
+  <script>
+    var img1 = document.querySelector(".img1")
+    var img2 = document.querySelector(".img2")
+    img1.addEventListener("click", () => {
+      img1.style.display = 'none'
+      img2.style.opacity = 1
+    })
+  </script>
+  
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  
+    body,
+    html {
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .box {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+  
+    }
+  
+    .box .img {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  
+    .box .img img {
+      width: 100vw;
+      height: 100vh;
+    }
+  
+    .box .img1 {
+      z-index: 10;
+    }
+  
+    .box .img2 {
+      opacity: 0;
+      z-index: 1;
+    }
+  </style>
+  
+</head>
+
+<body>
+  <div class="box">
+    <div class="img img1">
+      <img src="image/秋分1.png" alt="">
+    </div>
+    <div class="img img2">
+      <img src="image/秋分.jpg" alt="">
+    </div>
+  </div>
+</body>
+
+</html>
