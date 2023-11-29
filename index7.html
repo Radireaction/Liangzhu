@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>仓储区</title>
+	</head>
+	<style>
+		html,body{
+			width: 100%;
+			height: 100vh;
+			flex-direction: column;
+			justify-content: center;
+		}
+		body {
+			padding:0 0;				
+			margin:0 0;
+			display: flex;
+			transition: transform 0.5s ease;	
+			
+		}
+		.pic{
+			height:100vh;
+			background-image: url('img/cang00.jpg');
+			background-position: center;
+			background-size: cover;
+		}
+		}
+	</style>
+	<script>
+		var i=0;
+		function picchange(){
+			i++;
+			if(i==4){
+				document.getElementsByClassName("pic")[0].style.backgroundImage="url('img/cang0"+i+".png')";
+			}
+			else if(i<6){
+				document.getElementsByClassName("pic")[0].style.backgroundImage="url('img/cang0"+i+".jpg')";
+			}
+			else if(i==6){
+				location.href="https://radireaction.github.io/Liangzhu/index3.html";
+			}
+		}
+	</script>
+	<body>
+		<div class="pic" onclick="picchange()"></div>
+	</body>
+</html>
