@@ -6,8 +6,8 @@
 		<title>良渚古城地图</title>
 		<style>
 			html,body{
-				width: 640px;
-				height:1030px;
+				width: 100%;
+				height: 100vh;
 				flex-direction: column;
 				justify-content: center;
 			}
@@ -17,19 +17,14 @@
 				display: flex;
 				transition: transform 0.5s ease;		
 			}		
-			@media screen and (max-width: 640px) {  
-			  body {  
-			    display: flex;  
-			    flex-direction: column;  
-			    justify-content: center;  
-			    align-items: center;  
-			  }
+
 			.mainmap{
-				width: 640px;
-				height:1030px;
+				width: 100%;
+				height: auto;
+				
 			}
 			#map {		
-				height:1030px;				
+				height: 100vh;			
 				overflow-x: auto;
 				overflow-y: hidden;
 				display: flex;
@@ -39,42 +34,56 @@
 				position: relative;
 				transition: transform 0.5s ease;
 			}
-			}
+			
 			.gps{
-				height:40px;
-				width:auto;
-				display:none;
+				height:4%;
+				width:auto;				
 				position: absolute;
 				z-index: 10;
 			}
 			#gps01{
-				left:455px;
-				top:245px;
+				left:103%;
+				top:22%;
+				display:none;
 			}
 			#gps02{
-				left:601px;
-				top:530px;
+				left:162%;
+				top:46%;
+				display:none;
 			}
 			#gps03{
-				left:850px;
-				top:330px;
+				left:178%;
+				top:31%;
+				display:none;
 			}
 			#gps04{
-				left:993px;
-				top:385px;
+				left:224%;
+				top:37.5%;
+				display:none;
 			}
 			#gps05{
-				left:1232px;
-				top:235px;
+				left:272%;
+				top:16%;
+				display:none;
 			}
 		</style>		
 		<script>
+			var i=0;
+			var j=0;
 			function mapchange(){
-				document.getElementById("map").src="img/map01.jpg";
-				for(var i=1; i<6; i++){
-					document.getElementById("gps0"+i).style.display="flex";
-				}				
+				if(i==0){
+					document.getElementById("map").src="img/map01.jpg";
+				}
+				else {
+					document.getElementById("map").src="img/map02.jpg";
+					}
+				i++;
+				j++;
+				if(j>2){
+					document.getElementById("gps0"+(j-2)).style.display="flex";	
+				}
 			}
+			
 			window.addEventListener('resize', () => {  
 			  const container = document.querySelector('.mainmap');  
 			  const imageWidth = container.offsetWidth;  
@@ -91,11 +100,11 @@
 	<body>
 		<div class="mainmap">
 			<img src="img/map00.jpg"  id="map" onmouseup="mapchange()">
-			<img src="img/point.png" class="gps" id="gps01">
-			<img src="img/point.png" class="gps" id="gps02">
-			<img src="img/point.png" class="gps" id="gps03">
-			<img src="img/point.png" class="gps" id="gps04">
-			<img src="img/point.png" class="gps" id="gps05">		
+			<img src="img/point.png" class="gps" id="gps01" onmouseup="mapchange()">
+			<img src="img/point.png" class="gps" id="gps02" onmouseup="mapchange()">
+			<img src="img/point.png" class="gps" id="gps03" onmouseup="mapchange()">
+			<img src="img/point.png" class="gps" id="gps04" onmouseup="mapchange()">
+			<img src="img/point.png" class="gps" id="gps05" onmouseup="mapchange()">		
 		</div>		
 	</body>
 </html>
