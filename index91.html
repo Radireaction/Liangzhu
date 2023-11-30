@@ -53,8 +53,6 @@
       content1.style.display = 'block'
       content1.style.opacity = 1
       flag = 1
-    } else {
-     
     }
 
 
@@ -62,6 +60,7 @@
   blink.addEventListener("click",()=>{
     location.href = "index92.html"
   })
+  
   content1.addEventListener("click", () => {
     content1.style.opacity = 0
     content1.style.transition = 'none'
@@ -187,3 +186,25 @@
   .content p span:nth-child(6) {
     animation-delay: 4.5s;
   }
+
+    @keyframes show {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+</style>
