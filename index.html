@@ -35,37 +35,70 @@
 				transition: transform 0.5s ease;
 			}
 			
-			.gps{
-				height:4%;
-				width:auto;				
-				position: absolute;
-				z-index: 10;
+			.gps {
+			  height: 4%;
+			  width: auto;
+			  position: absolute;
+			  z-index: 10;
+			  transform: translate(-50%, -50%);
 			}
-			#gps01{
-				left:103%;
-				top:22%;
+			
+			@media screen and (max-width:800px){
+				#gps01{
+				left:106%;
+				top:24%;
 				display:none;
+				}
+				#gps02{
+					left:165%;
+					top:48%;
+					display:none;
+				}
+				#gps03{
+					left:181%;
+					top:33%;
+					display:none;
+				}
+				#gps04{
+					left:227%;
+					top:39.5%;
+					display:none;
+				}
+				#gps05{
+					left:275%;
+					top:18%;
+					display:none;
+				}
 			}
-			#gps02{
-				left:162%;
-				top:46%;
-				display:none;
+			@media screen and (min-width: 801px) {
+			  #gps01 {
+			    left: 23.5%;
+			    top: 24%;
+			    display: none;
+			  }
+			  #gps02 {
+			    left: 36.5%;
+			    top: 48%;
+			    display: none;
+			  }
+			  #gps03 {
+			    left: 40%;
+			    top: 33%;
+			    display: none;
+			  }
+			  #gps04 {
+			    left: 50%;
+			    top: 39.5%;
+			    display: none;
+			  }
+			  #gps05 {
+			    left: 60%;
+			    top: 18%;
+			    display: none;
+			  }
 			}
-			#gps03{
-				left:178%;
-				top:31%;
-				display:none;
-			}
-			#gps04{
-				left:224%;
-				top:37.5%;
-				display:none;
-			}
-			#gps05{
-				left:272%;
-				top:16%;
-				display:none;
-			}
+
+			
 		</style>		
 		<script>
 			var i=0;
