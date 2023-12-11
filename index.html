@@ -33,13 +33,13 @@
 					height: auto;
 				}
 				#map {
-					margin-left: 0;
+					margin-right: auto;
 					height: 100vh;
 					overflow-x: auto;
 					overflow-y: hidden;
 					display: flex;
 					object-fit: contain;
-					object-position: left 80%;
+					object-position: right 72%;
 					z-index: 0;
 					position: relative;
 					transition: transform 0.5s ease;
@@ -112,7 +112,11 @@
 			function mapchange(gpsIndex) {
 			    if (i == 0) {
 			        document.getElementById("map").src = "img/map01.jpg";			        			        
-			    } else {
+			    }
+				else if(i>7){
+					document.getElementById("map").src = "img/map03.jpg";	
+				}
+				 else {
 			        document.getElementById("map").src = "img/map02.jpg";
 			        updateGPS(gpsIndex); // 更新 GPS 图标的显示
 			        
@@ -145,25 +149,7 @@
 			    }
 			}
 
-			window.addEventListener('resize', () => {  
-				const container = document.querySelector('.mainmap');  
-				const imageWidth = container.offsetWidth;  
-				const windowWidth = window.innerWidth;
-				
-				if (isMobile()) {
-					// 在移动端设备上执行
-					const offset = -(imageWidth * 0.6);
-					container.style.transform = `translateX(${offset}px)`;
-				} else {
-					// 在网页端执行
-					container.style.transform = 'none'; // 移除水平偏移量
-				}
-			});
 
-			function isMobile() {
-				// 判断是否为移动端设备
-				return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-			};  
 		</script>
 	</head>
 	<body>
