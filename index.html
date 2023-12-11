@@ -2,142 +2,178 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content=" initial-scale=0.864,maximum-scale=1.5,minimum-scale=0.864" >
+		<meta name="viewport" content="initial-scale=0.864, maximum-scale=1.5, minimum-scale=0.864">
 		<title>良渚古城地图</title>
 		<style>
-			html,body{
+			html, body {
 				width: 100%;
 				height: 100vh;
+				display: flex;
 				flex-direction: column;
 				justify-content: center;
+				margin: 0;
+				padding: 0;
 			}
-			body {
-				padding:0 0;				
-				margin:0 0;
-				display: flex;
-				transition: transform 0.5s ease;		
-			}		
-
-			.mainmap{
-				width: 100%;
-				height: auto;
-				
-			}
-			#map {		
-				height: 100vh;			
-				overflow-x: auto;
-				overflow-y: hidden;
-				display: flex;
-				object-fit: contain;
-				object-position: right top;
-				z-index: 0;
-				position: relative;
-				transition: transform 0.5s ease;
-			}
-			
 			.gps {
-			  height: 4%;
-			  width: auto;
-			  position: absolute;
-			  z-index: 10;
-			  transform: translate(-50%, -50%);
+				height: 4%;
+				position: absolute;
+				z-index: 10;
+				transform: translate(-50%, -50%);
 			}
 			
-			@media screen and (max-width:1250px){
-				#gps01{
-				left:106%;
-				top:24%;
-				display:none;
+			/* 根据屏幕宽度设置GPS图标位置和显示状态 */
+			@media screen and (max-width:1250px) {
+				/* 移动端样式 */
+				body {
+					display: flex;
+					transition: transform 0.5s ease;		
 				}
-				#gps02{
-					left:165%;
-					top:48%;
-					display:none;
+				.mainmap {
+					width: 100%;
+					height: auto;
 				}
-				#gps03{
-					left:181%;
-					top:33%;
-					display:none;
+				#map {
+					margin-left: 0;
+					height: 100vh;
+					overflow-x: auto;
+					overflow-y: hidden;
+					display: flex;
+					object-fit: contain;
+					z-index: 0;
+					position: relative;
+					right:172%;
+					transition: transform 0.5s ease;
 				}
-				#gps04{
-					left:227%;
-					top:39.5%;
-					display:none;
-				}
-				#gps05{
-					left:275%;
-					top:18%;
-					display:none;
-				}
+				/* GPS图标位置 */
+				#gps01 { left: 106%; top: 24%; display: none; }
+				#gps02 { left: 165%; top: 48%; display: none; }
+				#gps03 { left: 181%; top: 33%; display: none; }
+				#gps04 { left: 227%; top: 39.5%; display: none; }
+				#gps05 { left: 275%; top:18%;  display: none; }
 			}
+			
 			@media screen and (min-width: 1251px) {
-			  #gps01 {
-			    left: 23.5%;
-			    top: 24%;
-			    display: none;
-			  }
-			  #gps02 {
-			    left: 36.5%;
-			    top: 48%;
-			    display: none;
-			  }
-			  #gps03 {
-			    left: 40%;
-			    top: 33%;
-			    display: none;
-			  }
-			  #gps04 {
-			    left: 50%;
-			    top: 39.5%;
-			    display: none;
-			  }
-			  #gps05 {
-			    left: 60%;
-			    top: 18%;
-			    display: none;
-			  }
-			}
-
-			
-		</style>		
-		<script>
-			var i=0;
-			var j=0;
-			function mapchange(){
-				if(i==0){
-					document.getElementById("map").src="img/map01.jpg";
-				}
-				else {
-					document.getElementById("map").src="img/map02.jpg";
+				/* 桌面端样式 */
+				body {
+					  width: 100%;
+					  height: 100vh;
+					  margin: 0;
+					  padding: 0;
+					  display: flex;
+					  justify-content: center;
+					  align-items: center; /* 添加这一行 */
+					  overflow: hidden; /* 避免出现滚动条 */
 					}
+				.mainmap {
+					  width: 100%;
+					  height: auto;
+					  display: flex;
+					  justify-content: center; /* 添加这一行 */
+					}
+				#map {
+					height: 100vh;			 
+					overflow-x: auto;
+					overflow-y: hidden;
+					display: flex;
+					object-fit: contain;
+					object-position: right top;
+					z-index: 0;
+					position: relative;
+					transition: transform 0.5s ease;
+				}
+				/* GPS图标位置 */
+				#gps01 { left: 36.5%; top: 24%; display: none; }
+				#gps02 { left: 49.5%; top: 48%; display: none; }
+				#gps03 { left: 53%; top: 33%; display: none; }
+				#gps04 { left: 63%; top: 39.5%; display: none; }
+				#gps05 { left: 73%; top: 18%; display: none; }
+			}
+		</style>
+		
+		<script>
+			var i = 0;
+			var j = 0;
+			var links = ['https://radireaction.github.io/Liangzhu/index91.html', 'https://radireaction.github.io/Liangzhu/index7.html',
+			 'https://radireaction.github.io/Liangzhu/index6.html', 'link4.html', 'https://radireaction.github.io/Liangzhu/index81.html'];
+			
+			function updateGPS(gpsIndex) {
+				for (var k = 1; k <= 5; k++) {
+					var gps = document.getElementById("gps0" + k);
+					if (gps) {
+						if (k == (j-2)) {
+							gps.style.display = "flex";
+						} else {
+							gps.style.display = "none";
+						}
+					}
+				}
+			}
+			
+			function mapchange(gpsIndex) {
+			    if (i == 0) {
+			        document.getElementById("map").src = "img/map01.jpg";			        			        
+			    } else {
+			        document.getElementById("map").src = "img/map02.jpg";
+			        updateGPS(gpsIndex); // 更新 GPS 图标的显示
+			        
+			        if (gpsIndex > 0) {
+			            // 仅当点击 GPS 图标时才执行跳转操作
+			            if (j > 2 && links.length >= j - 2) {
+			                var linkIndex = (j - 3) % links.length;
+			                var link = links[linkIndex] + '?i=' + (i - 1);
+			                window.location.href = link;
+			                return;
+			            }
+			        }
+			    }
 				i++;
 				j++;
-				if(j>2){
-					document.getElementById("gps0"+(j-2)).style.display="flex";	
-				}
+				updateGPS(gpsIndex); // 更新 GPS 图标的显示
 			}
-			
+
+			window.onload = function() {
+			    var params = new URLSearchParams(window.location.search);
+			    if (params.has('i')) {
+			        i = parseInt(params.get('i')) + 1;
+			        updateGPS();
+			    } else {
+			        var storedI = localStorage.getItem('iValue');
+			        if (storedI) {
+			            i = parseInt(storedI);
+			            updateGPS();
+			        }
+			    }
+			}
+
 			window.addEventListener('resize', () => {  
-			  const container = document.querySelector('.mainmap');  
-			  const imageWidth = container.offsetWidth;  
-			  const windowWidth = window.innerWidth;
-			
-			  if (windowWidth > imageWidth) {  
-			    container.style.left = (windowWidth - imageWidth) / 2 + 'px';  
-			  } else {  
-			    container.style.left = 0;  
-			  }  
-			});  
-		</script>	
+				const container = document.querySelector('.mainmap');  
+				const imageWidth = container.offsetWidth;  
+				const windowWidth = window.innerWidth;
+				
+				if (isMobile()) {
+					// 在移动端设备上执行
+					const offset = -(imageWidth * 0.6);
+					container.style.transform = `translateX(${offset}px)`;
+				} else {
+					// 在网页端执行
+					container.style.transform = 'none'; // 移除水平偏移量
+				}
+			});
+
+			function isMobile() {
+				// 判断是否为移动端设备
+				return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+			};  
+		</script>
 	</head>
 	<body>
 		<div class="mainmap">
-			<img src="img/map00.jpg"  id="map" onmouseup="mapchange()">
-			<img src="img/point.png" class="gps" id="gps01" onmouseup="mapchange()">
-			<img src="img/point.png" class="gps" id="gps02" onmouseup="mapchange()">
-			<img src="img/point.png" class="gps" id="gps03" onmouseup="mapchange()">
-			<img src="img/point.png" class="gps" id="gps04" onmouseup="mapchange()">
-			<img src="img/point.png" class="gps" id="gps05" onmouseup="mapchange()">		
+			<img src="img/map00.jpg" id="map" onclick="mapchange(0)">
+			<img src="img/point.png" class="gps" id="gps01" onclick="mapchange(1)">
+			<img src="img/point.png" class="gps" id="gps02" onclick="mapchange(2)">
+			<img src="img/point.png" class="gps" id="gps03" onclick="mapchange(3)">
+			<img src="img/point.png" class="gps" id="gps04" onclick="mapchange(4)">	
+			<img src="img/point.png" class="gps" id="gps05" onclick="mapchange(5)">	
 		</div>		
 	</body>
 </html>
