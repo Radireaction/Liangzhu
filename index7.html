@@ -27,17 +27,19 @@
 		}
 	</style>
 	<script>
-		var i=0;
+		var urlParams = new URLSearchParams(window.location.search);
+		var i = parseInt(urlParams.get('i'));
+		var x=0;
 		function picchange(){
-			i++;
-			if(i==4){
-				document.getElementsByClassName("pic")[0].style.backgroundImage="url('img/cang0"+i+".png')";
+			x++;
+			if(x==4){
+				document.getElementsByClassName("pic")[0].style.backgroundImage="url('img/cang0"+x+".png')";
 			}
-			else if(i<6){
-				document.getElementsByClassName("pic")[0].style.backgroundImage="url('img/cang0"+i+".jpg')";
+			else if(x<6){
+				document.getElementsByClassName("pic")[0].style.backgroundImage="url('img/cang0"+x+".jpg')";
 			}
-			else if(i==6){
-				location.href="https://radireaction.github.io/Liangzhu/index3.html";
+			else if(x==6){
+				location.href="https://radireaction.github.io/Liangzhu/index2.html?i=" + i;
 			}
 		}
 	</script>
