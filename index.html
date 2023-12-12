@@ -140,11 +140,13 @@
 			    if (params.has('i')) {
 			        i = parseInt(params.get('i')) + 1;
 			        updateGPS();
+				mapchange();
 			    } else {
 			        var storedI = localStorage.getItem('iValue');
 			        if (storedI) {
 			            i = parseInt(storedI);
 			            updateGPS();
+					mapchange();
 			        }
 			    }
 			}
