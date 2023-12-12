@@ -41,7 +41,7 @@
       </div>
       <p>100%</p>
       <p class="back">
-        <a href="#">返回</a>
+        <a href="#" id="back-btn">返回</a>
       </p>
     </div>
 
@@ -49,6 +49,17 @@
 </body>
 
 </html>
+
+<script>
+  window.addEventListener('load', function () {
+  var urlParams = new URLSearchParams(window.location.search);
+  var i = parseInt(urlParams.get('i'));
+  document.getElementById("back-btn").addEventListener("click", function() {
+    location.href = "https://radireaction.github.io/Liangzhu/index.html?i=" + i;
+  });
+});
+</script>
+
 <style>
   * {
     padding: 0;
