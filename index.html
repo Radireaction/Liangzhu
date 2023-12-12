@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.5, minimum-scale=1.0">
+		<link rel="icon" href="data:,">
 		<title>良渚古城地图</title>
 		<style>
 			html, body {
@@ -116,7 +117,7 @@
 				else if(i>7){
 					document.getElementById("map").src = "img/map03.jpg";	
 				}
-				 else {
+				 else if(i>0&&i<=7){
 			        document.getElementById("map").src = "img/map02.jpg";
 			        updateGPS(gpsIndex); // 更新 GPS 图标的显示
 			        
@@ -141,13 +142,13 @@
 			    if (params.has('i')) {
 			        i = parseInt(params.get('i')) + 1;
 			        updateGPS();
-				mapchange();
+					mapchange();
 			    } else {
 			        var storedI = localStorage.getItem('iValue');
 			        if (storedI) {
 			            i = parseInt(storedI);
 			            updateGPS();
-					mapchange();
+						mapchange();
 			        }
 			    }
 			}
