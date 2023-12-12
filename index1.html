@@ -37,6 +37,17 @@
 </body>
 
 </html>
+
+<script>
+  window.addEventListener('load', function () {
+  var urlParams = new URLSearchParams(window.location.search);
+  var i = parseInt(urlParams.get('i'));
+  document.getElementById("back-btn").addEventListener("click", function() {
+    location.href = "https://radireaction.github.io/Liangzhu/index.html?i=" + i;
+  });
+});
+</script>
+
 <style>
   * {
     padding: 0;
@@ -81,13 +92,20 @@
     position: relative;
   }
 
-  .currentImg,
+  .currentImg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+  }
+  
   .backImg {
     position: absolute;
     height: 100%;
     width: 100%;
+	z-index: 1;
   }
-
+  
   img {
     width: 100%;
     height: 100%;
@@ -136,5 +154,35 @@
   .back a {
     all: unset;
     color: white;
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes show {
+    0% {
+      transform: scale(0.5)
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes proMove {
+    0% {
+      width: 0%;
+    }
+
+    100% {
+      width: 20%;
+    }
   }
 </style>
