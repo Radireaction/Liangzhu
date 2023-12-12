@@ -10,6 +10,9 @@
 			height: 100vh;
 			flex-direction: column;
 			justify-content: center;
+			background-image: url('img/loading.jpg');
+			background-position: center;
+			background-size: cover;
 		}
 		body {
 			padding:0 0;				
@@ -24,6 +27,8 @@
 			background-position: center;
 			background-size: cover;
 		}
+		.content {
+			display: none; /* 页面内容初始时隐藏 */
 		}
 	</style>
 	<script>
@@ -42,8 +47,15 @@
 				location.href="https://radireaction.github.io/Liangzhu/index2.html?i=" + i;
 			}
 		}
+		window.addEventListener('load', function() {
+			document.getElementsByClassName("content")[0].style.display = "block"; // 页面加载完成后显示内容
+			document.body.style.backgroundImage = "none"; // 隐藏加载画面
+		});
 	</script>
 	<body>
+		<body onclick="picchange()">
+			<div class="content">
+				<!-- 这里放你的页面内容 -->
 		<div class="pic" onclick="picchange()"></div>
 	</body>
 </html>
