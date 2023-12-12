@@ -90,11 +90,18 @@
     position: relative;
   }
 
-  .currentImg,
-  .backImg {
+  .currentImg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+  }
+  
+  .backImg{
     position: absolute;
     height: 100%;
     width: 100%;
+	z-index: 1;
   }
 
   img {
@@ -144,5 +151,35 @@
   .back a {
     all: unset;
     color: white;
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes show {
+    0% {
+      transform: scale(0.5)
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes proMove {
+    0% {
+      width: 40%;
+    }
+
+    100% {
+      width: 60%;
+    }
   }
 </style>
