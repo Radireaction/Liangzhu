@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>宫殿</title>
   <link rel="stylesheet" href="css/style.css"/>
   <script src="js/Sortable.min.js"></script>
   <script src="js/index.js"></script>
@@ -42,8 +42,16 @@
     <img src="./images/im1.png">
   </div>
 </div>
-<div class="warp view3" style="opacity: 0;z-index: -1">
+<div class="warp view3" style="opacity: 0;z-index: -1" onclick="goTo5()">
   <img src="./images/im2.jpg">
 </div>
+<script>
+  function goTo5(){
+    var urlParams=new URLSearchParams(window.location.search);
+    var i=paraInt(urlParams.get('i'));
+    window.location.href="https://radireaction.github.io/Liangzhu/index5.html?i="+i;
+  }
+</script>
+  <a href="https://radireaction.github.io/Liangzhu/index5.html"></a>
 </body>
 </html>
