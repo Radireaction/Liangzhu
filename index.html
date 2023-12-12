@@ -82,11 +82,11 @@
 					transition: transform 0.5s ease;
 				}
 				/* GPS图标位置 */
-				#gps01 { left: 36.5%; top: 24%; display: none; }
-				#gps02 { left: 49.5%; top: 48%; display: none; }
-				#gps03 { left: 53%; top: 33%; display: none; }
-				#gps04 { left: 63%; top: 39.5%; display: none; }
-				#gps05 { left: 73%; top: 18%; display: none; }
+				#gps01 { left: 36.5%; top: 24%; display: none; cursor: pointer;}
+				#gps02 { left: 49.5%; top: 48%; display: none; cursor: pointer;}
+				#gps03 { left: 53%; top: 33%; display: none; cursor: pointer;}
+				#gps04 { left: 63%; top: 39.5%; display: none; cursor: pointer;}
+				#gps05 { left: 73%; top: 18%; display: none; cursor: pointer;}
 			}
 		</style>
 		
@@ -155,11 +155,11 @@
 	<body>
 		<div class="mainmap">
 			<img src="img/map00.jpg" id="map" onclick="mapchange(0)">
-			<img src="img/point.png" class="gps" id="gps01" onclick="mapchange(1)">
-			<img src="img/point.png" class="gps" id="gps02" onclick="mapchange(2)">
-			<img src="img/point.png" class="gps" id="gps03" onclick="mapchange(3)">
-			<img src="img/point.png" class="gps" id="gps04" onclick="mapchange(4)">	
-			<img src="img/point.png" class="gps" id="gps05" onclick="mapchange(5)">	
+			<img title="王陵区" src="img/point.png" class="gps" id="gps01" onclick="mapchange(1)">
+			<img title="仓储区" src="img/point.png" class="gps" id="gps02" onclick="mapchange(2)">
+			<img title="宫殿区" src="img/point.png" class="gps" id="gps03" onclick="mapchange(3)">
+			<img title="钟家港" src="img/point.png" class="gps" id="gps04" onclick="mapchange(4)">	
+			<img title="瑶山祭坛" src="img/point.png" class="gps" id="gps05" onclick="mapchange(5)">	
 		</div>		
 	</body>
 </html>
