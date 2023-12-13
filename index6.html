@@ -47,7 +47,7 @@
 </div>
 <script>
   var urlParams=new URLSearchParams(window.location.search);
-  var i=paraInt(urlParams.get('i') || 0);
+  var i=Number(urlParams.get('i') || 0);
   function goTo5(){
     window.location.href="https://radireaction.github.io/Liangzhu/index5.html?i="+i;
   }
