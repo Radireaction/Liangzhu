@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <main>
+  <main onclick="goToIndex()">
     <div class="content">
       <div class="text">
         <p>恭喜！点亮一块新碎片！</p>
@@ -41,25 +41,20 @@
       </div>
       <p>100%</p>
       <p class="back">
-        <a href="#" id="back-btn">返回</a>
+        <a href="#">返回</a>
       </p>
     </div>
 
   </main>
+  <script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var i = Number(urlParams.get('i') || 0);
+    function goToIndex() {
+      window.location.href="https://radireaction.github.io/Liangzhu/index5.html?i=" + i;
+    }
+  </script>
 </body>
-
 </html>
-
-<script>
-  window.addEventListener('load', function () {
-  var urlParams = new URLSearchParams(window.location.search);
-  var i = parseInt(urlParams.get('i') || 0);
-  document.getElementById("back-btn").addEventListener("click", function() {
-    location.href = "https://radireaction.github.io/Liangzhu/index.html?i=" + i;
-  });
-});
-</script>
-
 <style>
   * {
     padding: 0;
@@ -73,7 +68,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background-image: url("image/背景2.png");
+    background-image: url("image/背景.png");
   }
 
   main {
@@ -104,18 +99,11 @@
     position: relative;
   }
 
-  .currentImg{
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	z-index: 2;
-  }
-  
+  .currentImg,
   .backImg {
     position: absolute;
     height: 100%;
     width: 100%;
-	z-index: 1;
   }
 
   img {
@@ -165,35 +153,5 @@
   .back a {
     all: unset;
     color: white;
-  }
-
-    @keyframes appear {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes show {
-    0% {
-      transform: scale(0.5)
-    }
-
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes proMove {
-    0% {
-      width: 40%;
-    }
-
-    100% {
-      width: 60%;
-    }
   }
 </style>
