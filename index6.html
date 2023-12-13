@@ -48,10 +48,9 @@
 <script>
   function goTo5(){
     var urlParams=new URLSearchParams(window.location.search);
-    var i=paraInt(urlParams.get('i'));
+    var i=paraInt(urlParams.get('i') || 0);
     window.location.href="https://radireaction.github.io/Liangzhu/index5.html?i="+i;
   }
 </script>
-  <a href="https://radireaction.github.io/Liangzhu/index5.html"></a>
 </body>
 </html>
