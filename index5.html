@@ -53,7 +53,7 @@
 <script>
   window.addEventListener('load', function () {
   var urlParams = new URLSearchParams(window.location.search);
-  var i = parseInt(urlParams.get('i'));
+  var i = parseInt(urlParams.get('i') || 0);
   document.getElementById("back-btn").addEventListener("click", function() {
     location.href = "https://radireaction.github.io/Liangzhu/index.html?i=" + i;
   });
