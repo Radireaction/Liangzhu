@@ -41,20 +41,23 @@
       </div>
       <p>100%</p>
       <p class="back">
-        <a href="#">返回</a>
+        <a href="#" id="back-btn">返回</a>
       </p>
     </div>
 
   </main>
-  <script>
-    var urlParams = new URLSearchParams(window.location.search);
-    var i = Number(urlParams.get('i') || 0);
-    function goToIndex() {
-      window.location.href="https://radireaction.github.io/Liangzhu/index.html?i=" + i;
-    }
-  </script>
 </body>
+
 </html>
+
+<script>
+  var urlParams = new URLSearchParams(window.location.search);
+  var i = Number(urlParams.get('i') || 0);
+  function goToIndex() {
+    window.location.href="https://radireaction.github.io/Liangzhu/index.html?i=" + i;
+  }
+</script>
+
 <style>
   * {
     padding: 0;
@@ -68,7 +71,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background-image: url("image/背景.png");
+    background-image: url("image/背景2.png");
   }
 
   main {
@@ -99,11 +102,18 @@
     position: relative;
   }
 
-  .currentImg,
+  .currentImg{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+  }
+  
   .backImg {
     position: absolute;
     height: 100%;
     width: 100%;
+	z-index: 1;
   }
 
   img {
@@ -153,5 +163,35 @@
   .back a {
     all: unset;
     color: white;
+  }
+
+    @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes show {
+    0% {
+      transform: scale(0.5)
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes proMove {
+    0% {
+      width: 40%;
+    }
+
+    100% {
+      width: 60%;
+    }
   }
 </style>
