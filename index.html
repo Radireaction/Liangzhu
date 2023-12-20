@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.5, minimum-scale=1.0">
+		<link rel="icon" href="data:,">
+		<title>良渚古城地图</title>
+		<style>
+			html, body {
+				width: 100%;
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				margin: 0;
+				padding: 0;
+			}
+			.gps {
+				height: 4%;
+				position: absolute;
+				z-index: 10;
+				transform: translate(-50%, -50%);
+			}
+			
+			/* 根据屏幕宽度设置GPS图标位置和显示状态 */
+			@media screen and (max-width:1250px) {
+				/* 移动端样式 */
+				body {
+					display: flex;
+					transition: transform 0.5s ease;		
+				}
+				.mainmap {
+					width: 100%;
+					height: auto;
+				}
+				#map {
+					margin-right: auto;
+					height: 100vh;
+					overflow-x: auto;
+					overflow-y: hidden;
+					display: flex;
+					object-fit: contain;
+					object-position: right 72%;
+					z-index: 0;
+					position: relative;
+					transition: transform 0.5s ease;
+				}
+				/* GPS图标位置 */
+				#gps01 { left: 105vw; top: 24%; display: none; }
+				#gps02 { left: 165vw; top: 48%; display: none; }
+				#gps03 { left: 181vw; top: 33%; display: none; }
+				#gps04 { left: 227vw; top: 39.5%; display: none; }
+				#gps05 { left: 275vw; top:18%;  display: none; }
+			}
+			
+			@media screen and (min-width: 1251px) {
+				/* 桌面端样式 */
+				body {
+					  width: 100%;
+					  height: 100vh;
+					  margin: 0;
+					  padding: 0;
+					  display: flex;
+					  justify-content: center;
+					  align-items: center; /* 添加这一行 */
+					  overflow: hidden; /* 避免出现滚动条 */
+					}
+				.mainmap {
+					  width: 100%;
+					  height: auto;
+					  display: flex;
+					  justify-content: center; /* 添加这一行 */
+					}
+				#map {
+					height: 100vh;			 
+					overflow-x: auto;
+					overflow-y: hidden;
+					display: flex;
+					object-fit: contain;
+					object-position: right top;
+					z-index: 0;
+					position: relative;
+					transition: transform 0.5s ease;
+				}
+				/* GPS图标位置 */
+				#gps01 { left: 36.5%; top: 24%; display: none; cursor: pointer;}
+				#gps02 { left: 49.5%; top: 48%; display: none; cursor: pointer;}
+				#gps03 { left: 53%; top: 33%; display: none; cursor: pointer;}
+				#gps04 { left: 63%; top: 39.5%; display: none; cursor: pointer;}
+				#gps05 { left: 73%; top: 18%; display: none; cursor: pointer;}
+			}
+		</style>
+		
+		<script>
+			var i = 0;
+			var j = 0;
+			var links = ['https://radireaction.github.io/Liangzhu/index91.html', 'https://radireaction.github.io/Liangzhu/index7.html',
+			 'https://radireaction.github.io/Liangzhu/index6.html', 'link4.html', 'https://radireaction.github.io/Liangzhu/index81.html'];
+			
+			function updateGPS(gpsIndex) {
+				for (var k = 1; k <= 5; k++) {
+					var gps = document.getElementById("gps0" + k);
+					if (gps) {
+						if (k == (i-2)) {
+							gps.style.display = "flex";
+						} else {
+							gps.style.display = "none";
+						}
+					}
+				}
+			}
+			
+			function mapchange(gpsIndex) {
+			    if (i == 0) {
+			        document.getElementById("map").src = "img/map01.jpg";			        			        
+			    }
+				else if(i>7){
+					document.getElementById("map").src = "img/map03.jpg";	
+				}
+				 else if(i>0&&i<=7){
+			        document.getElementById("map").src = "img/map02.jpg";
+			        updateGPS(gpsIndex); // 更新 GPS 图标的显示
+			        
+			        if (gpsIndex > 0) {
+			            // 仅当点击 GPS 图标时才执行跳转操作
+			            if (j > 2 && links.length >= j - 2) {
+			                var linkIndex = (j - 3) % links.length;
+			                var link = links[linkIndex] + '?i=' + (i - 1);
+			                window.location.href = link;
+			                return;
+			            }
+			        }
+			    }
+				i++;
+				j++;
+				updateGPS(gpsIndex); // 更新 GPS 图标的显示
+				localStorage.setItem('iValue', i);
+			}
+
+			window.onload = function() {
+			    var params = new URLSearchParams(window.location.search);
+			    if (params.has('i')) {
+			        i = parseInt(params.get('i')) + 1;
+			        updateGPS();
+					mapchange();
+			    } else {
+			        var storedI = localStorage.getItem('iValue');
+			        if (storedI) {
+			            i = parseInt(storedI);
+			            updateGPS();
+						mapchange();
+			        }
+			    }
+				localStorage.removeItem('iValue');
+			}
+
+
+		</script>
+	</head>
+	<body>
+		<div class="mainmap">
+			<img src="img/map00.jpg" id="map" onclick="mapchange(0)">
+			<img title="王陵区" src="img/point.png" class="gps" id="gps01" onclick="mapchange(1)">
+			<img title="仓储区" src="img/point.png" class="gps" id="gps02" onclick="mapchange(2)">
+			<img title="宫殿区" src="img/point.png" class="gps" id="gps03" onclick="mapchange(3)">
+			<img title="钟家港" src="img/point.png" class="gps" id="gps04" onclick="mapchange(4)">	
+			<img title="瑶山祭坛" src="img/point.png" class="gps" id="gps05" onclick="mapchange(5)">	
+		</div>		
+	</body>
+</html>

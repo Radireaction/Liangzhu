@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王陵3</title>
+</head>
+
+<body>
+  <div class="
+  box">
+    <div class="img">
+      <!-- 文字 -->
+      <img src="image/大玉钺文字.png" alt="" class="word_1">
+      <img src="image/大孔壁文字.png" alt="" class="word_2">
+      <img src="image/臂穿玉琮文字.png" alt="" class="word_3">
+      <img src="image/权杖文字.png" alt="" class="word_4">
+      <img src="image/王冠文字.png" alt="" class="word_5">
+      <img src="image/大琮文字.png" alt="" class="word_6">
+      <img src="image/石钺文字.png" alt="" class="word_7">
+      <img src="image/嵌玉髹漆圆形器文字.png" alt="" class="word_8">
+      <img src="image/随葬陶器文字.png" alt="" class="word_9">
+      <!-- 光点 -->
+      <img src="image/指示图标.png" alt="" class="point_1">
+      <img src="image/指示图标.png" alt="" class="point_2">
+      <img src="image/指示图标.png" alt="" class="point_3">
+      <img src="image/指示图标.png" alt="" class="point_4">
+      <img src="image/指示图标.png" alt="" class="point_5">
+      <img src="image/指示图标.png" alt="" class="point_6">
+      <img src="image/指示图标.png" alt="" class="point_7">
+      <img src="image/指示图标.png" alt="" class="point_8">
+      <img src="image/指示图标.png" alt="" class="point_9">
+      <div class="btn">
+        <p>完成</p>
+      </div>
+    </div>
+
+
+  </div>
+</body>
+<script>
+  // 文字
+  let word_1 = document.querySelector(".word_1")
+  let word_2 = document.querySelector(".word_2")
+  let word_3 = document.querySelector(".word_3")
+  let word_4 = document.querySelector(".word_4")
+  let word_5 = document.querySelector(".word_5")
+  let word_6 = document.querySelector(".word_6")
+  let word_7 = document.querySelector(".word_7")
+  let word_8 = document.querySelector(".word_8")
+  let word_9 = document.querySelector(".word_9")
+  // 指示图标
+  let point_1 = document.querySelector(".point_1")
+  let point_2 = document.querySelector(".point_2")
+  let point_3 = document.querySelector(".point_3")
+  let point_4 = document.querySelector(".point_4")
+  let point_5 = document.querySelector(".point_5")
+  let point_6 = document.querySelector(".point_6")
+  let point_7 = document.querySelector(".point_7")
+  let point_8 = document.querySelector(".point_8")
+  let point_9 = document.querySelector(".point_9")
+  // 标识符
+  let flags = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  // 按钮
+  let btn = document.querySelector(".btn")
+  // 事件
+  point_1.addEventListener("click", () => {
+    word_1.style.display = 'block'
+    point_1.style.display = 'none'
+    flags[0] = 1
+  })
+  point_2.addEventListener("click", () => {
+    word_2.style.display = 'block'
+    point_2.style.display = 'none'
+    flags[1] = 1
+  })
+  point_3.addEventListener("click", () => {
+    word_3.style.display = 'block'
+    point_3.style.display = 'none'
+    flags[2] = 1
+  })
+  point_4.addEventListener("click", () => {
+    word_4.style.display = 'block'
+    point_4.style.display = 'none'
+    flags[3] = 1
+  })
+  point_5.addEventListener("click", () => {
+    word_5.style.display = 'block'
+    point_5.style.display = 'none'
+    flags[4] = 1
+  })
+  point_6.addEventListener("click", () => {
+    word_6.style.display = 'block'
+    point_6.style.display = 'none'
+    flags[5] = 1
+  })
+  point_7.addEventListener("click", () => {
+    word_7.style.display = 'block'
+    point_7.style.display = 'none'
+    flags[6] = 1
+  })
+  point_8.addEventListener("click", () => {
+    word_8.style.display = 'block'
+    point_8.style.display = 'none'
+    flags[7] = 1
+  })
+  point_9.addEventListener("click", () => {
+    word_9.style.display = 'block'
+    point_9.style.display = 'none'
+    flags[8] = 1
+  })
+  // 定时器检测
+  function watch() {
+    var flag = flags.filter((item) => item == 0)
+    if (flag.length != 0) {
+      requestAnimationFrame(watch)
+    } else {
+      btn.style.opacity = 1
+    }
+
+  }
+  requestAnimationFrame(watch)
+</script>
+
+</html>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body,
+  html {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-image: url("image/背景单.png");
+    background-repeat: repeat-y;
+    background-size: 100% 100%;
+  }
+
+  .box {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+
+  .box .bg {
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .box .btn {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    font-size: 5vw;
+    background-color: rgb(198, 162, 102);
+    padding: 1vw;
+    border-radius: 2vw;
+    opacity: 0;
+    transition: all .3s;
+  }
+
+  .box .bg img {
+    width: 100vw;
+    height: 100vh;
+
+  }
+
+  .box .img {
+    position: absolute;
+    top: 10vw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85vw;
+    aspect-ratio: 1/2;
+    overflow: hidden;
+    background-image: url("image/王陵界面3.png");
+    background-size: 100% 100%;
+  }
+
+
+  /* 文字样式 */
+  .box .img img.word_1 {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    width: 48%;
+    aspect-ratio: 6.5/1;
+    object-fit: cover;
+    display: none;
+  }
+
+  .box .img img.word_2 {
+    position: absolute;
+    left: 5%;
+    top: 36%;
+    width: 42%;
+    height: 6%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .box .img img.word_3 {
+    position: absolute;
+    left: 6%;
+    top: 38%;
+    width: 36%;
+    height: 10%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .box .img img.word_4 {
+    position: absolute;
+    left: 0%;
+    top: 30%;
+    width: 35%;
+    height: 4%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .box .img img.word_5 {
+    position: absolute;
+    left: 10%;
+    top: 18%;
+    width: 37%;
+    height: 2%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .box .img img.word_6 {
+    position: absolute;
+    left: 56%;
+    top: 25%;
+    width: 26%;
+    height: 3%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .box .img img.word_7 {
+    position: absolute;
+    left: 68%;
+    top: 34%;
+    width: 30%;
+    height: 18%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .box .img img.word_8 {
+    position: absolute;
+    left: 67%;
+    top: 60%;
+    width: 20%;
+    height: 5%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .box .img img.word_9 {
+    position: absolute;
+    left: 55%;
+    top: 70%;
+    width: 40%;
+    height: 3%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .box .img img.word_9 {
+    position: absolute;
+    left: 55%;
+    top: 70%;
+    width: 40%;
+    height: 3%;
+    object-fit: cover;
+    display: none;
+  }
+
+  /* 光点 */
+  .box .img img.point_1 {
+    position: absolute;
+    left: 46%;
+    top: 34%;
+    width: 6%;
+    aspect-ratio: 1/1.4;
+    object-fit: cover;
+    animation: blink 1s infinite alternate;
+  }
+
+  .box .img img.point_2 {
+    position: absolute;
+    left: 40%;
+    top: 42%;
+    width: 6%;
+    aspect-ratio: 1/1.4;
+    object-fit: cover;
+    animation: blink 1s infinite alternate;
+    z-index: 10;
+  }
+
+  .box .img img.point_3 {
+    position: absolute;
+    left: 42%;
+    top: 38%;
+    width: 6%;
+    aspect-ratio: 1/1.4;
+    object-fit: cover;
+    animation: blink 1s infinite alternate;
+  }
+
+  .box .img img.point_4 {
+    position: absolute;
+    left: 35%;
+    top: 34%;
+    width: 6%;
+    aspect-ratio: 1/1.4;
+    object-fit: cover;
+    animation: blink 1s infinite alternate;
+  }
+
+  .box .img img.point_5 {
+    position: absolute;
+    left: 51%;
+    top: 20%;
+    width: 6%;
+    aspect-ratio: 1/1.4;
+    object-fit: cover;
+    animation: blink 1s infinite alternate;
+  }
+
+  .box .img img.point_6 {
+    position: absolute;
+    left: 56%;
+    top: 30%;
+    width: 6%;
+    aspect-ratio: 1/1.4;
+    object-fit: cover;
+    animation: blink 1s infinite alternate;
+  }
+
+  .box .img img.point_7 {
+    position: absolute;
+    left: 70%;
+    top: 41%;
+    width: 6%;
+    aspect-ratio: 1/1.4;
+    object-fit: cover;
+    animation: blink 1s infinite alternate;
+  }
+
+  .box .img img.point_8 {
+    position: absolute;
+    left: 65%;
+    top: 64%;
+    width: 6%;
+    aspect-ratio: 1/1.4;
+    object-fit: cover;
+    animation: blink 1s infinite alternate;
+  }
+
+  .box .img img.point_9 {
+    position: absolute;
+    left: 55%;
+    top: 70%;
+    width: 6%;
+    aspect-ratio: 1/1.4;
+    object-fit: cover;
+    animation: blink 1s infinite alternate;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+</style>

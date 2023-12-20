@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>仓储区</title>
+	</head>
+	<style>
+		html,body{
+			width: 100%;
+			height: 100vh;
+			flex-direction: column;
+			justify-content: center;
+			background-image: url('img/loading.jpg');
+			background-position: center;
+			background-size: cover;
+		}
+		body {
+			padding:0 0;				
+			margin:0 0;
+			display: flex;
+			transition: transform 0.5s ease;	
+			
+		}
+		.pic{
+			height:100vh;
+			background-image: url('img/cang00.jpg');
+			background-position: center;
+			background-size: cover;
+		}
+		.content {
+			display: none; /* 页面内容初始时隐藏 */
+		}
+	</style>
+	<script>
+		var urlParams = new URLSearchParams(window.location.search);
+		var i = parseInt(urlParams.get('i'));
+		var x=0;
+		function picchange(){
+			x++;
+			if(x==4){
+				document.getElementsByClassName("pic")[0].style.backgroundImage="url('img/cang0"+x+".png')";
+			}
+			else if(x<6){
+				document.getElementsByClassName("pic")[0].style.backgroundImage="url('img/cang0"+x+".jpg')";
+			}
+			else if(x==6){
+				location.href="https://radireaction.github.io/Liangzhu/index2.html?i=" + i;
+			}
+		}
+		window.addEventListener('load', function() {
+			document.getElementsByClassName("content")[0].style.display = "block"; // 页面加载完成后显示内容
+			document.body.style.backgroundImage = "none"; // 隐藏加载画面
+		});
+	</script>
+	<body>
+		<body onclick="picchange()">
+			<div class="content">
+				<!-- 这里放你的页面内容 -->
+		<div class="pic" onclick="picchange()"></div>
+	</body>
+</html>
