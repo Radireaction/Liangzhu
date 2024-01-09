@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>结束界面</title>
+	</head>
+	
+	<style>
+		html,body{
+			width:100%;
+			height:100%;
+			margin: 0;
+			padding:0;
+		}
+		.main{
+			width:100%;
+			height:100%;
+			background-image:url("img/ending01.jpg");
+			background-size:  auto 100%; 
+			background-repeat: no-repeat;
+			background-position: center;
+			position: absolute;
+			z-index: 1;
+		}
+		.option {
+			width: 100%;
+			height: 70%;
+			position: absolute;
+			top: 15%;
+			left: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 9999;
+		}
+		.option img {
+			width: 80vw;
+			height: auto;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		var x=1;
+		$(function(){
+			$(".main").click(function(){
+				x++;
+				$(this).css("background-image", "url(img/ending0" + x + ".jpg)");
+				if (x === 4) {
+					var optionImg = $("<img>").attr("src", "img/endingOption.png");
+					$(".main").append($("<div>").addClass("option").append(optionImg));
+				}
+				if (x === 5) {
+		            window.location.href = "https://radireaction.github.io/Liangzhu/index91.html";
+		        }
+			});
+		});
+	</script>
+	<body>
+		<div class="main"></div>
+	</body>
+</html>
+
