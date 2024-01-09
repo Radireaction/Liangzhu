@@ -1,62 +1,146 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>结束界面</title>
-	</head>
-	
-	<style>
-		html,body{
-			width:100%;
-			height:100%;
-			margin: 0;
-			padding:0;
-		}
-		.main{
-			width:100%;
-			height:100%;
-			background-image:url("img/ending01.jpg");
-			background-size:  auto 100%; 
-			background-repeat: no-repeat;
-			background-position: center;
-			position: absolute;
-			z-index: 1;
-		}
-		.option {
-			width: 100%;
-			height: 70%;
-			position: absolute;
-			top: 15%;
-			left: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			z-index: 9999;
-		}
-		.option img {
-			width: 80vw;
-			height: auto;
-		}
-	</style>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript">
-		var x=1;
-		$(function(){
-			$(".main").click(function(){
-				x++;
-				$(this).css("background-image", "url(img/ending0" + x + ".jpg)");
-				if (x === 4) {
-					var optionImg = $("<img>").attr("src", "img/endingOption.png");
-					$(".main").append($("<div>").addClass("option").append(optionImg));
-				}
-				if (x === 5) {
-		            window.location.href = "https://radireaction.github.io/Liangzhu/index91.html";
-		        }
-			});
-		});
-	</script>
-	<body>
-		<div class="main"></div>
-	</body>
-</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钟家港</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="./js/index.js"></script>
+</head>
+<body>
 
+        <div class="container">
+
+            <div class="box" onclick="changeZIndex(this)">
+                <div id="nacGround" >
+                    <a href="#bac_2">
+                        <div class="nav_bac" >
+                            <div class="title">钟家港</div>
+                            <p class="t1">良渚古城城内河网密布，位于城内宫</p>
+                            <p class="t2">殿区以东的钟家港古河道，是城内的南北主</p>
+                            <p class="t3">干道。钟家港工作区是一个集中的手工业生</p>
+                            <p class="t4">产区,主要用于制作石器、玉器和陶器。</p>
+                            <br>
+                            <br>
+                            <p class="t5">这里的手工业作坊揭示了良诸文化</p>
+                            <p class="t6">在工艺技术方面的高度发展，尤其是在玉器</p>
+                            <p class="t7">加工上达到了非常高的水平。这些工艺品不</p>
+                            <p class="t8">仅用于日常生活，还在仪式和宗教活动中扮</p>
+                            <p class="t9">演着重要角色。</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="box" onclick="changeZIndex(this)">
+                <div id="bac_2" >
+                    <div class="img">
+                        <a href="#bac_3"> <img src="./images/img.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="box" onclick="changeZIndex(this)">
+                <div id="bac_3" >
+                    <div class="title">玉器作坊</div>
+                    <p class="t1">考古队员在堆积里发现的玉器成品、半</p>
+                    <p class="t2">成品、残件200多件，基本上只有两种产 </p>
+                    <p class="t3"> 品:玉锥形器和玉管，还有一些零星的小坠</p>
+                    <p class="t4">子。</p>
+                    <p class="t5">这说明当时良渚人的玉器生产已经能达</p>
+                    <p class="t6">到高度专业化的水平，因为做玉锥形器和做</p>
+                    <p class="t7">玉琼、玉璧，完全是两种技术，玉料也有差</p>
+                    <p class="t8">异，需要不同的专业方向、专业人士。</p>
+                    <p class="t9">
+                        <img src="./images/ava.webp"  alt="">
+                    </p>
+                </div>
+                <div class="btn" >
+                    <a href="#bac_4"><img src="./images/next.png" alt="" srcset=""></a>
+                </div>
+            </div>
+            <div class="box" onclick="changeZIndex(this)">
+                <a href="#bac_5" >
+                    <div id="bac_4" >
+                        <div class="title">
+                            玉器作坊
+                        </div>
+                        <div class="b4" >
+                            <div class="img1 cc t1">
+                                <img src="./images/1.webp" alt="">
+                            </div>
+                            <p class="a cc t2">中初鸣遗址出土条状玉料</p>
+                            <div class="img2 cc t3">
+                                <img src="./images/2.webp" alt="">
+                            </div>
+                            <p class="cc t4">王家里遗址点发现玉料</p>
+                        </div>
+                    </div></a>
+            </div>
+            <div class="box" onclick="changeZIndex(this)">
+                <div id="bac_5" >
+                    <div class="title">
+                        玉器作坊
+                    </div>
+                    <p class="dd t1">2017年10月-2019年12月，浙江省文物考古</p>
+                    <p class="dd t2">研究所、德清县博物馆在这里进行了大面积</p>
+                    <p class="dd t3">系统调查和探勘，发现和确认良渚文化时期</p>
+                    <p class="dd t4">的人工营建土台23处，明确了这个区域存在</p>
+                    <p class="dd t5">一处良渚文化时期大规模制玉作坊群，称之</p>
+                    <p class="dd t6">为“中初鸣制玉作坊遗址群”。</p>
+                    <div  class="dd t7 img">
+                        <img src="./images/3.webp" alt="">
+                    </div>
+                    <p class="dd t8 ">良渚文化晚期，除了高端产品为代表，还</p>
+                    <p class="dd t9">存在多种经济形式，可能还存在不同经济模</p>
+                    <p class="dd t10">式，这预示着重大的社会变革。中初鸣制玉</p>
+                    <p class="dd t11">作坊遗址群，是良渚文明和良渚古国高度发</p>
+                    <p class="dd t12">达的重要体现。</p>
+                </div>
+                <div class="btn">
+                    <img src="./images/next.png" onclick="moveOther()" alt="" srcset="">
+                </div>
+
+            </div>
+        </div>
+
+<script type="text/javascript">
+    function changeZIndex(element) {
+        // 在点击时将 z-index 设置为较大的值（例如 10）
+        element.style.zIndex = "-99";
+
+        // 你也可以在其他盒子被点击时将之前被选中的盒子 z-index 设回默认值（例如 1）
+        // const allBoxes = document.querySelectorAll('.box');
+        // allBoxes.forEach(box => {
+        //     if (box !== element) {
+        //         box.style.zIndex = "1";
+        //     }
+        // });
+    }
+
+</script>
+
+</body>
+<style>
+    .box{
+        position: absolute;
+        top: 0;
+
+        height: 100%;
+
+    }
+
+    .box:nth-child(1) {
+        z-index: 5;
+    }
+    .box:nth-child(2){
+        z-index: 4;
+    }
+    .box:nth-child(3){
+        z-index: 3;
+    }
+    .box:nth-child(4){
+        z-index: 2;
+    } .box:nth-child(5){
+        z-index: 1;
+    }
+</style>
+</html>
