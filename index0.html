@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/Sortable.min.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body>
+<div class="warp view1">
+  <div class="text" style="opacity: 0">
+
+  </div>
+  <div class="list">
+    <p data-key="3" class="data3" style="z-index: 8">
+      <img src="images/4.png" alt=""/>
+      <span class="title">青泥填充层</span>
+    </p>
+    <p data-key="1" class="data1" style="z-index: 10">
+      <img src="images/2.png" alt=""/>
+      <span class="title">沙土广场</span>
+    </p>
+    <p data-key="2" class="data2" style="z-index: 9">
+      <img src="images/3.png" alt=""/>
+      <span class="title">覆土堆筑层</span>
+    </p>
+    <p data-key="0" class="data0">
+      <img src="images/1.png" alt=""/>
+      <span class="title">大莫角山</span>
+    </p>
+    <p data-key="5" class="data5" style="z-index: 6">
+      <img src="images/6.png" alt=""/>
+      <span class="title">遗迹分布</span>
+    </p>
+    <p data-key="4" class="data4" style="z-index: 7">
+      <img src="images/5.png" alt=""/>
+      <span class="title">殿筑层</span>
+    </p>
+  </div>
+</div>
+<div class="warp view2" style="opacity: 0;z-index: -1">
+  <img class="gua" src="./images/gua.png">
+  <div class="text">
+    <span class="text2">
+    </span>
+    <img src="./images/im1.png">
+  </div>
+</div>
+<div class="warp view3" style="opacity: 0;z-index: -1" onclick="goTo5()">
+  <img src="./images/im2.jpg">
+</div>
+<div class="tips">请按照提示拖动</div>
+<script>
+  var urlParams=new URLSearchParams(window.location.search);
+  var i=Number(urlParams.get('i') || 0);
+  function goTo5(){
+    console.log(i)
+    var j = i || 0;
+    window.location.href="https://radireaction.github.io/Liangzhu/index5.html?i="+i;
+  }
+</script>
+</body>
+</html>
