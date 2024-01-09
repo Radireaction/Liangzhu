@@ -113,6 +113,19 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.list .title{
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 17px;
+  text-align: center;
+  z-index: 999;
+}
+.list .ok .title{
+  color: #fff;
+}
 
 .list p.data0 {
   width: 30%;
@@ -146,7 +159,6 @@ body {
 .list p img {
   max-width: 100%;
 }
-
 .view2 .gua {
   width: 100%;
 }
@@ -165,13 +177,36 @@ body {
   width: 90%;
   margin-top: 20px;
 }
-.view3 {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
 
 .view3 img {
   width: 100%;
   height: 100%;
+}
+
+.tips {
+  position: fixed;
+  left: 50%;
+  bottom: 50px;
+  background-color: #c0a36f;
+  height: auto;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4% 6%;
+  border-radius: 15px;
+  transition: all 1s;
+  transform: translateX(-50%);
+  animation: tipshide 0.5s forwards;
+  animation-delay: 3s;
+}
+
+@keyframes tipshide {
+  0% {
+    opacity: 1;
+    bottom: 50px;
+  }
+
+  100% {
+    opacity: 0;
+    bottom: -50px;
+  }
 }
