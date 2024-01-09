@@ -47,36 +47,44 @@
         alt="01.jpg"
         title="01.jpg"
         class="active"
-        onclick="showNextImage()"
       />
       <img
         src="https://www.freeimg.cn/i/2024/01/09/659d072e249be.jpg"
         alt="02.jpg"
         title="02.jpg"
-        onclick="showNextImage()"
       />
       <img
         src="https://www.freeimg.cn/i/2024/01/09/659d072ea1cbb.jpg"
         alt="03.jpg"
         title="03.jpg"
-        onclick="goToLink()"
       />
     </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <script>
-      const images = document.querySelectorAll(".wrap img");
-      let currentIndex = 0;
+      $(document).ready(function() {
+        const images = $(".wrap img");
+        let currentIndex = 0;
 
-      function showNextImage() {
-        images[currentIndex].classList.remove("active");
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add("active");
-      }
+        function showNextImage() {
+          images.eq(currentIndex).removeClass("active");
+          currentIndex = (currentIndex + 1) % images.length;
+          images.eq(currentIndex).addClass("active");
+        }
 
-      function goToLink() {
-        window.location.href =
-          "https://radireaction.github.io/Liangzhu/index.html";
-      }
+        function goToLink() {
+          window.location.href =
+            "https://radireaction.github.io/Liangzhu/index.html";
+        }
+
+        images.click(function() {
+          if (currentIndex === images.length - 1) {
+            goToLink();
+          } else {
+            showNextImage();
+          }
+        });
+      });
     </script>
   </body>
 </html>
