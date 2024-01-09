@@ -1,14 +1,18 @@
+
+
 window.onload = () => {
+  var urlParams = new URLSearchParams(window.location.search);
+  var i = parseInt(urlParams.get('i'));
   function pint(el, text) {
     return new Promise((resolve, reject) => {
 
-      let i = 1
+      let x = 1
       const id = setInterval(() => {
-        if(i >= text.length) {
+        if(x >= text.length) {
           clearInterval(id)
           resolve(undefined)
         }
-        el.innerText = text.slice(0, i++)
+        el.innerText = text.slice(0, x++)
       }, 120)
     })
   }
@@ -38,9 +42,17 @@ window.onload = () => {
     animation: 600,
     onEnd: async () => {
       const list = sortable.toArray()
+      document.querySelectorAll(`.list p`).forEach((item, index) => {
+        let key = item.getAttribute('data-key')
+        if(index == key){
+          item.classList.add('ok')
+        }else{
+          item.classList.remove('ok')
+        }
+      })
       list.forEach((item, index) => document.querySelector(`.list .data${ item }`).style.zIndex = 10 - index + '')
-      for(let i = 0; i < list.length; i++) {
-        if(i != list[i]) return
+      for(let x = 0; x < list.length; x++) {
+        if(x != list[x]) return
       }
       if(b === true) return
       b = true
@@ -53,7 +65,7 @@ window.onload = () => {
       await pint(document.querySelector('.view2 .text2'), '考古学家推测这里可能是一个中心城址，是良渚文化的政治、经济、文化中心。莫角山遗址的发现对研究良诸文化的聚落形态、社会性质，以及探索中华文明的起源提供重季的者点率愁，30万平方米，占据了古城十分之一的面积。《吕氏春秋》记载:“古之王者，择天下之中而立国择国之中而立宫。”古城宣熙区的设计明显体现了以中为尊，以高为崇的理念。')
       await waitClick()
       const el2 = document.querySelector('.view3')
-      el2.style.zIndex = '9999'
+      el2.style.zIndex = '2'
       el2.style.opacity = '1'
     },
   })
