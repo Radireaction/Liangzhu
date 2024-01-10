@@ -15,14 +15,32 @@
     <div class="img img2">
       <img src="image/秋分.jpg" alt="">
     </div>
+	<div class="btn">
+	  <p>
+		  <a href="https://radireaction.github.io/Liangzhu/index5">完成</a>
+	  </p>
+	</div>
   </div>
 </body>
 <script>
+  window.addEventListener('load', function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var i = parseInt(urlParams.get('i'));
+    document.getElementById("back-btn").addEventListener("click", function() {
+      location.href = "https://radireaction.github.io/Liangzhu/index.html?i=" + i;
+    });
+  });
+	
   let img1 = document.querySelector(".img1")
   let img2 = document.querySelector(".img2")
   img1.addEventListener("click", () => {
     img1.style.display = 'none'
     img2.style.opacity = 1
+  })
+  // 按钮
+  let btn = document.querySelector(".btn")
+  img2.addEventListener("click", () => {
+    btn.style.opacity = 1
   })
 </script>
 
@@ -68,5 +86,24 @@
   .box .img2 {
     opacity: 0;
     z-index: 1;
+  }
+  
+  .box .btn {
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    transform: translateX(-50%);
+    font-size: 6vw;
+    background-color: rgb(198, 162, 102);
+    padding: 1.5vw;
+    border-radius: 2vw;
+    opacity: 0;
+    transition: all .3s;
+	z-index: 11;
+  }
+  
+  .box .btn a {
+    all: unset;
+    color: black;
   }
 </style>
