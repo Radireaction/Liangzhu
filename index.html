@@ -112,10 +112,7 @@
 			}
 			
 			function mapchange(gpsIndex) {
-			    if (i == 0) {
-			        document.getElementById("map").src = "img/map01.jpg";			        			        
-			    }
-				 else if(i>0&&i<=7){
+					if(i>0&&i<=7){
 			        document.getElementById("map").src = "img/map02.jpg";
 			        updateGPS(gpsIndex); // 更新 GPS 图标的显示
 			        
@@ -158,7 +155,7 @@
 	</head>
 	<body>
 		<div class="mainmap">
-			<img src="img/map00.jpg" id="map" onclick="mapchange(0)">
+			<img src="img/map01.jpg" id="map" onclick="mapchange(0)">
 			<img title="王陵区" src="img/point.png" class="gps" id="gps01" onclick="mapchange(1)">
 			<img title="仓储区" src="img/point.png" class="gps" id="gps02" onclick="mapchange(2)">
 			<img title="宫殿区" src="img/point.png" class="gps" id="gps03" onclick="mapchange(3)">
