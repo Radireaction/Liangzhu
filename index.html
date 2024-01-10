@@ -62,14 +62,14 @@
 					  padding: 0;
 					  display: flex;
 					  justify-content: center;
-					  align-items: center; /* 添加这一行 */
+					  align-items: center; 
 					  overflow: hidden; /* 避免出现滚动条 */
 					}
 				.mainmap {
 					  width: 100%;
 					  height: auto;
 					  display: flex;
-					  justify-content: center; /* 添加这一行 */
+					  justify-content: center; 
 					}
 				#map {
 					height: 100vh;			 
@@ -94,11 +94,9 @@
 		<script>
 			var i = 0;
 			var j = 0;
-			var links = ['https://radireaction.github.io/Liangzhu/index91.html', 
-				     'https://radireaction.github.io/Liangzhu/index7.html',
-			 		'https://radireaction.github.io/Liangzhu/index6.html',
-				     'https://radireaction.github.io/Liangzhu/index10.html', 
-				     'https://radireaction.github.io/Liangzhu/index81.html'];
+			var links = ['https://radireaction.github.io/Liangzhu/index91.html', 'https://radireaction.github.io/Liangzhu/index7.html',
+			 'https://radireaction.github.io/Liangzhu/index6.html',
+			  'https://radireaction.github.io/Liangzhu/index10.html', 'https://radireaction.github.io/Liangzhu/index81.html'];
 			
 			function updateGPS(gpsIndex) {
 				for (var k = 1; k <= 5; k++) {
@@ -131,30 +129,31 @@
 			            }
 			        }
 			    }
+				else if(i>9){
+					window.location.href = 'https://radireaction.github.io/Liangzhu/index99.html';
+				}
 				i++;
 				j++;
 				updateGPS(gpsIndex); // 更新 GPS 图标的显示
 				localStorage.setItem('iValue', i);
 			}
 
-			window.onload = function() {
-			    var params = new URLSearchParams(window.location.search);
-			    if (params.has('i')) {
-			        i = parseInt(params.get('i')) + 1;
-			        updateGPS();
-					mapchange();
-			    } else {
-			        var storedI = localStorage.getItem('iValue');
-			        if (storedI) {
-			            i = parseInt(storedI);
-			            updateGPS();
-						mapchange();
-			        }
-			    }
-				localStorage.removeItem('iValue');
-			}
-
-
+			$(document).ready(function() {
+					    var params = new URLSearchParams(window.location.search);
+					    if (params.has('i')) {
+					        i = parseInt(params.get('i')) + 1;
+					        updateGPS();
+							mapchange();
+					    } else {
+					        var storedI = localStorage.getItem('iValue');
+					        if (storedI) {
+					            i = parseInt(storedI);
+					            updateGPS();
+								mapchange();
+					        }
+					    }
+						localStorage.removeItem('iValue');
+					});
 		</script>
 	</head>
 	<body>
