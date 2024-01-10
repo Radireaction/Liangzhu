@@ -53,13 +53,22 @@
 </div>
 <div class="tips">请按照提示拖动</div>
 <script>
-  var urlParams=new URLSearchParams(window.location.search);
-  var i=Number(urlParams.get('i') || 0);
-  function goTo5(){
-    console.log(i)
-    var j = i || 0;
-    window.location.href="https://radireaction.github.io/Liangzhu/index5.html?i="+i;
-  }
+  $(document).ready(function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var i = parseInt(urlParams.get('i'));
+    $("#back-btn").on("click", function() 
+      { window.location.href = "https://radireaction.github.io/Liangzhu/index5.html?i=" + i; 
+      });
+  });
+  
+  
+  //var urlParams=new URLSearchParams(window.location.search);
+//var i=Number(urlParams.get('i') || 0);
+  //function goTo5(){
+    //console.log(i)
+    //var j = i || 0;
+    //window.location.href="https://radireaction.github.io/Liangzhu/index5.html?i="+i;
+  //}
 </script>
 </body>
 </html>
