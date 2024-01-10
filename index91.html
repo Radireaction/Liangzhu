@@ -35,10 +35,23 @@
       <span> 就让我们探索M12号墓穴中究竟藏有什么奥秘吧！</span>
     </p>
   </div>
+  <div class="btn">
+    <p>
+        <a>点击M12墓穴继续</a>
+    </p>
+  </div>
 </body>
 
 </html>
 <script>
+  window.addEventListener('load', function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var i = parseInt(urlParams.get('i'));
+    document.getElementById("back-btn").addEventListener("click", function() {
+      location.href = "https://radireaction.github.io/Liangzhu/index.html?i=" + i;
+    });
+  });
+  
   let box = document.querySelector(".box")
   let content1 = document.querySelector(".content1")
   let content2 = document.querySelector(".content2")
@@ -46,6 +59,9 @@
   // 标识符
   let flag = 0
   let blinkFlag = 0
+  // 按钮
+  let btn = document.querySelector(".btn")
+  
   box.addEventListener("click", () => {
     if (flag == 0) {
       box.style.transform = `translateX(-50%) translateY(50vw)`
@@ -54,9 +70,8 @@
       content1.style.opacity = 1
       flag = 1
     }
-
-
   })
+  
   blink.addEventListener("click",()=>{
     location.href = "index92.html"
   })
@@ -76,12 +91,11 @@
       requestAnimationFrame(watch)
     } else {
       setTimeout(() => {
+		btn.style.opacity = 1
         blink.style.display = 'block'
         blink.style.opacity = 1
       }, 5000)
-
     }
-
   }
   requestAnimationFrame(watch)
 </script>
@@ -145,7 +159,7 @@
 
   .content {
     position: absolute;
-    top: 30vmin;
+    top: 35vmin;
     left: 0;
     padding: 5vw;
     margin: 0 5vw;
@@ -186,8 +200,26 @@
   .content p span:nth-child(6) {
     animation-delay: 4.5s;
   }
+  
+  .btn {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    font-size: 4vw;
+    background-color: rgb(198, 162, 102);
+    padding: 1.5vw 2.5vw;
+    border-radius: 2vw;
+    opacity: 0;
+    transition: all .3s;
+  }
+  
+  .btn a{
+  	all: unset;
+  	color: black;
+  }
 
-    @keyframes show {
+  @keyframes show {
     0% {
       opacity: 0;
     }
@@ -206,5 +238,4 @@
       opacity: 1;
     }
   }
-
 </style>
