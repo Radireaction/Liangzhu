@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-
+<html>
+  
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +32,9 @@
       <img src="image/指示图标.png" alt="" class="point_8">
       <img src="image/指示图标.png" alt="" class="point_9">
       <div class="btn">
-        <p>完成</p>
+        <p>
+        	<a href="https://radireaction.github.io/Liangzhu/index5">完成</a>
+        </p>
       </div>
     </div>
 
@@ -39,6 +42,14 @@
   </div>
 </body>
 <script>
+  window.addEventListener('load', function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var i = parseInt(urlParams.get('i'));
+    document.getElementById("back-btn").addEventListener("click", function() {
+      location.href = "https://radireaction.github.io/Liangzhu/index.html?i=" + i;
+    });
+  });
+  
   // 文字
   let word_1 = document.querySelector(".word_1")
   let word_2 = document.querySelector(".word_2")
@@ -159,16 +170,21 @@
   .box .btn {
     position: absolute;
     left: 50%;
-    bottom: 5%;
+    bottom: 7%;
     transform: translateX(-50%);
-    font-size: 5vw;
+    font-size: 4vw;
     background-color: rgb(198, 162, 102);
-    padding: 1vw;
+    padding: 1.5vw 2.5;
     border-radius: 2vw;
     opacity: 0;
     transition: all .3s;
   }
 
+  .box .btn a{
+	all: unset;
+	color: black;
+  }
+  
   .box .bg img {
     width: 100vw;
     height: 100vh;
@@ -186,7 +202,6 @@
     background-image: url("image/王陵界面3.png");
     background-size: 100% 100%;
   }
-
 
   /* 文字样式 */
   .box .img img.word_1 {
