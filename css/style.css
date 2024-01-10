@@ -190,7 +190,7 @@ body {
   background-color: #c0a36f;
   height: auto;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: normal;
   padding: 4% 6%;
   border-radius: 15px;
   transition: all 1s;
